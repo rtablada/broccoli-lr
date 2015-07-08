@@ -1,6 +1,6 @@
 {
   "name": "broccoli-lr",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A CLI runner for Broccoli that reenables Live Reload.",
   "main": "index.js",
   "repository": {
@@ -15,6 +15,11 @@
   },
   "author": "Ryan Tablada < ryan.tablada@gmail.com >",
   "license": "MIT",
+  "keywords": [
+    "broccoli",
+    "cli",
+    "live-reload"
+  ],
   "dependencies": {
     "broccoli": "^0.16.3",
     "tiny-lr": "^0.1.6",

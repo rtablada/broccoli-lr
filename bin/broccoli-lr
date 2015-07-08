@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var resolve = require('resolve');
+
+process.title = 'broccoli-lr';
+
+try {
+  var broccoliPath = resolve.sync('broccoli', {
+    basedir: process.cwd()
+  });
+} catch (e) {
+  console.error('The main Broccoli library was not found.');
+  console.error('');
+  console.error('If this is an existing project, running `npm install` may solve this.');
+  console.error('Otherwise, running `npm install --save-dev broccoli` will install the Broccoli library.');
+  process.exit(1);
+}
+
+var broccoli = require(broccoliPath);
+
+var program = require('commander');
+
+function getBuilder () {
+  var tree = broccoli.loadBrocfile();
+  return new broccoli.Builder(tree);
+};
+
+var actionPerformed = false;
+
+program.command('serve')
+    .description('start a broccoli server with Live Reload')
+    .option('--port <port>', 'the port to bind to [4200]', 4200)
+    .option('--host <host>', 'the host to bind to [localhost]', 'localhost')
+    .option('--live-reload-port <port>', 'the port to start LiveReload on [35729]', 35729)
+    .action(function(options) {
+      actionPerformed = true;
+      require('../index').serve(broccoli, getBuilder(), options);
+    });
+
+program.parse(process.argv);
+if(!actionPerformed) {
+  program.outputHelp();
+  process.exit(1);
+}

@@ -1,8 +1,8 @@
 # Broccoli Live Reload (broccoli-lr)
 
-Since version 0.15 or so broccoli no longer has live-reload baked in as part of its basic server (nor should it honestly).
+Since version 0.15 or so Broccoli no longer has live-reload baked in as part of its basic server (nor should it honestly).
 
-This command allows for a quick and easy way for you to get all the goodness of the latest broccoli version as well as the old live reload that you know and love.
+This command allows for a quick and easy way for you to get all the goodness of the latest Broccoli version as well as the old live reload that you know and love.
 
 ## Install
 
@@ -15,11 +15,18 @@ npm install -g broccoli-lr
 That's it!
 No local version (at least not of LR).
 
-You will still have to install your normal local broccoli and any filters and plugins you may want in your `Brocfile.js` (I'm not magical).
+You will still have to install your normal local Broccoli and any filters and plugins you may want in your `Brocfile.js` (I'm not magical).
+
+## Waiting on PR to Close
+
+This small wrapper heavily relies on being able to grab the watcher instance from an existing Broccoli server.
+This feature is not currently available and is waiting on a PR to land (hopefully soon).
+
+Until then, please use `rtablada/broccoli#feature/server-returns` as your local version of `broccoli` in your `package.json` file.
 
 ## Use
 
-Now when you want to start broccoli with live reload, you can run:
+Now when you want to start Broccoli with live reload, you can run:
 
 ```
 broccoli-lr serve

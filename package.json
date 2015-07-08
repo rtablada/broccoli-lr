@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A CLI runner for Broccoli that reenables Live Reload.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtablada/broccoli-lr"
+  },
   "bin": {
     "broccoli-lr": "bin/broccoli-lr"
   },
